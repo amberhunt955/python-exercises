@@ -59,7 +59,7 @@ b = 2
 a == b #false
 a != b #true
 a > b #false
-a <=b #true
+a <= b #true
 
 # ======= Boolean Operators =======
 
@@ -111,3 +111,152 @@ print("bEAu".lower())
 
 # Make first letter of each word capital
 print("string title".title())
+
+# Escape characters
+name = "Be\"au" # include quotes
+name = "Be\au" # new line
+name = "Be\\au" # include backslash
+
+#* Booleans (bool)
+# Booleans have the first letter capitalized in python
+
+# Numbers are always True, except 0
+
+# Strings are false only when empty
+
+# Lists. tuples, sets, dictionaries are false only when empty
+
+#* Complex numbers
+
+num1 = 2 + 3j
+print(num1.real, num1.imag)
+num2 = complex(2, 3)
+print(num2.real, num2.imag)
+
+#* Built in Functions
+
+# absolute value
+print(abs(-5.5))
+
+# round
+print(round(5.5))
+print(round(5.49, 1)) 
+
+# user input
+# age = input("What is your age? ")
+# print("Your age is " + age)
+
+#* Control Statements
+
+condition = True
+
+if condition == True:
+  print("The condition was true.")
+else:
+  print("The condition was false.")
+
+# also elif (see rock paper scissors)
+
+#* Lists
+# Lists are an essential python data structure
+
+dogs = ["Roger", 1, True, "Syd", 4]
+
+print("Roger" in dogs)
+print("Beau" in dogs)
+print(dogs[0]) 
+print(dogs[2:4]) # prints index 2-4
+print(dogs[:3]) # prints up to 3
+dogs.append("Judah")
+print(len(dogs))
+print(dogs)
+dogs.extend(["Ashley", 2]) # add another list to existing list (can also do +=)
+print(dogs)
+dogs.remove(1)
+print(dogs)
+print(dogs.pop()) # removes last item from the list and returns it
+dogs.insert(2, "Test") # add at a specific index
+print(dogs)
+dogs[1:1] = ["Test1", "Test2"] # add multiple at a specific index
+print(dogs)
+
+names = ["anne", "joe", "Elle", "bob"]
+names.sort()
+print(names)
+# note that the sort method sorts uppercase letters first, then lowercase
+# to get around this ->
+names.sort(key=str.lower)
+print(names) 
+
+# you can copy a list
+names_copy = names[:]
+print(names_copy)
+
+# the global sorted function returns a new list without modifying the original list
+sorted(names, key=str.lower)
+
+#* Tuples
+# immutable groups of objects (can't add, remove, or alter items or their order)
+# use parenthesis
+
+people = ("Roger", "Syd", "Anne")
+print(len(people))
+print(sorted(people)) # prints modified but does not change original tuple
+
+#* Dictionaries
+# allow you to create key value pairs
+
+dog = {"name": "Roger", "age": 8, "toy": "mouse", "birthday": "june 8"}
+
+dog['name'] = "Syd"
+print(dog.get("name"))
+print(dog.get("color", "brown")) # return brown if no color
+print(dog.pop("name")) # get and return popped item
+print(dog)
+print(dog.popitem()) # pop last item and return it
+print(dog)
+print("color" in dog) # in this case returns false
+print(dog.keys()) # returns keys
+print(list(dog.keys())) # returns keys in a list
+print(dog.values()) # returns values
+print(dog.items()) # returns all items in dictionary and convert it to a list
+print(len(dog))
+dog["favorite food"] = "meat" # add item to dictionary
+print(dog)
+del dog['age'] # delete item from dictionary
+print(dog)
+dogCopy = dog.copy()
+
+#* Sets
+# sets kind of work like tuples, but they're not ordered and they're mutable
+# they are also kind of like dictionaries, but they don't have keys
+# sets work well when you think of them as mathematical sets
+
+set1 = {"Roger", "Syd"}
+set2 = {"Roger"}
+set3 = {"Luna"}
+
+intersect = set1 & set2
+print(intersect)
+
+mod1 = set1 | set2 # this is called a union
+mod2 = set1 | set3
+print(mod1) # returns {"Syd", "Roger"}
+print(mod2) # returns {"Luna", "Syd", "Roger"}
+
+mod3 = set1 - set2 # find what is different between two sets
+print(mod3)
+
+# find if a set is a superset of another, and if a set is a subset of another
+mod4 = set1 > set2
+mod5 = set1 < set2
+print(mod4)
+print(mod5)
+
+# make a set a list
+print(list(set1))
+
+# can use in operator to check if something is in set
+print("Roger" in set1)
+
+# IMPORTANT! a set cannot have two of the same item
